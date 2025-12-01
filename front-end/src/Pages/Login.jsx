@@ -49,7 +49,8 @@ export default function Login() {
                         <label className="block text-black font-medium mb-2">Senha</label>
                         <input type="password" name="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="w-full border border-black py-2 px-3 rounded-lg text-black"></input>
                     </div>
-                    <button style={{ backgroundColor: '#22A0AD' }} className=" w-full rounded-xl text-white font-bold py-3 mb-6 transition shadow-md ">Entrar</button>            </form>
+                    <button style={{ backgroundColor: '#22A0AD' }} className=" w-full rounded-xl text-white font-bold py-3 mb-6 transition shadow-md ">Entrar</button>
+                </form>
 
             </div>
         </div>

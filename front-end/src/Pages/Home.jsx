@@ -1,10 +1,13 @@
+import Content from "../Components/Content";
 import Header from "../Components/Header";
+import Sidebar from "../Components/Sidebar";
 
 export default function Home(){
     return(
         <div>
             <Header/>
-            <p>Teste da home</p>
+            <Sidebar/>
+            <Content/>
         </div>
     )
 }
