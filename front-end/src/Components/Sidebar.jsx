@@ -1,19 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaUserPlus, FaCalendarPlus, FaUserMd, FaUserTie, FaEye, FaUsers, FaStethoscope } from 'react-icons/fa';
+import ModaladastrarPaciente from './ModalCadastrarPaciente';
+import ModalAgendarConsulta from './ModalAgendarConsulta';
 
-export default function Sidebar (){
+export default function Sidebar() {
+  const [isModalAgendarConsultaOpen, setIsModalAgendarConsultaOpen] = useState(false)
+  const [isModalCadastroPacienteOpen, setIsModalCadastroPacienteOpen] = useState(false)
+
+  const handleOpenAgendarModalModal = () => setIsModalAgendarConsultaOpen(true)
+  const handleCloseAgendarConsultaModal = () => setIsModalAgendarConsultaOpen(false)
+
+  const handleOpenCadastroPacienteModal = () => setIsModalCadastroPacienteOpen(true)
+  const handleCloseCadastroPacienteModal = () => setIsModalCadastroPacienteOpen(false)
+
   return (
     <div className="bg-white w-64 p-4 shadow-lg h-full fixed top-0 left-0 overflow-y-auto z-30">
       <h2 className="text-lg font-bold mb-3 text-gray-700">Ações</h2>
       <div className="space-y-3 mb-6">
-        <button className="flex items-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-150">
+        <button onClick={handleOpenCadastroPacienteModal}
+          className="flex items-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-150">
           <FaUserPlus className="mr-3" />
           Cadastrar Paciente
         </button>
-        <button className="flex items-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-150">
+        <ModaladastrarPaciente
+          isOpen={isModalCadastroPacienteOpen}
+          onClose={handleCloseCadastroPacienteModal}
+        />
+        <button onClick={handleOpenAgendarModalModal}
+        className="flex items-center w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-150">
           <FaCalendarPlus className="mr-3" />
           Agendar Consulta
         </button>
+        <ModalAgendarConsulta
+          isOpen={isModalAgendarConsultaOpen}
+          onClose={handleCloseAgendarConsultaModal}
+        />
       </div>
 
       <h2 className="text-lg font-bold mb-3 text-gray-700">Ações de ADMIN</h2>
