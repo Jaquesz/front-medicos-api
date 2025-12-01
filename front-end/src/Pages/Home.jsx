@@ -1,13 +1,54 @@
+<<<<<<< Updated upstream
 import Content from "../Components/Content";
 import Header from "../Components/Header";
 import Sidebar from "../Components/Sidebar";
+=======
+import { useState } from "react";
+import Header from "../Components/Header";
+import ModalAgendarConsulta from "../Components/ModalAgendarConsulta";
+import Login from "./Login";
+import ModaladastrarPaciente from "../Components/ModalCadastrarPaciente";
+>>>>>>> Stashed changes
 
-export default function Home(){
-    return(
+export default function Home() {
+    const [isModalAgendarConsultaOpen, setIsModalAgendarConsultaOpen] = useState(false)
+    const [isModalCadastroPacienteOpen, setIsModalCadastroPacienteOpen] = useState(false)
+
+    const handleOpenAgendarModalModal = () => setIsModalAgendarConsultaOpen(true)
+    const handleCloseAgendarConsultaModal = () => setIsModalAgendarConsultaOpen(false)
+
+    const handleOpenCadastroPacienteModal = () => setIsModalCadastroPacienteOpen(true)
+    const handleCloseCadastroPacienteModal = () => setIsModalCadastroPacienteOpen(false)
+
+    return (
         <div>
+<<<<<<< Updated upstream
             <Header/>
             <Sidebar/>
             <Content/>
+=======
+            <Header />
+            <button
+                onClick={handleOpenAgendarModalModal}
+                className="py-2 px-6 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-150"
+            >
+                ➕ Agendar Nova Consulta
+            </button>
+            <ModalAgendarConsulta
+                isOpen={isModalAgendarConsultaOpen}
+                onClose={handleCloseAgendarConsultaModal}
+            />
+            <button
+                onClick={handleOpenCadastroPacienteModal}
+                className="py-2 px-6 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition duration-150"
+            >
+                ➕ Cadastrar novo paciente
+            </button>
+            <ModaladastrarPaciente
+                isOpen={isModalCadastroPacienteOpen}
+                onClose={handleCloseCadastroPacienteModal}
+            />
+>>>>>>> Stashed changes
         </div>
     )
 }
