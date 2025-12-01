@@ -80,7 +80,6 @@ export default function ModalAgendarConsulta({ isOpen, onClose }) {
         buscarMedicos(), buscarPacientes()
     }, [])
 
-    console.log(medicos);
     return (
         <ModalWrapper isOpen={isOpen} onClose={onClose}>
             <div className="flex flex-col gap-4">
