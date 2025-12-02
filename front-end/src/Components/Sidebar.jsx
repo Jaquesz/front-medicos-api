@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaUserPlus, FaCalendarPlus, FaUserMd, FaUserTie, FaEye, FaUsers, FaStethoscope } from 'react-icons/fa';
 import ModaladastrarPaciente from './ModalCadastrarPaciente';
 import ModalAgendarConsulta from './ModalAgendarConsulta';
@@ -17,6 +17,7 @@ export default function Sidebar() {
   const [ModalCadastrarMedicoOpen, setModalCadastrarMedicoOpen] = useState(false)
   const handleOpenCadastrarMedicoModal = () => setModalCadastrarMedicoOpen(true)
   const handleCloseCadastrarMedicoModal = () => setModalCadastrarMedicoOpen(false)
+
 
   return (
     <div className="bg-white w-64 p-4 shadow-lg h-full fixed top-0 left-0 overflow-y-auto z-30">

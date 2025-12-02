@@ -78,7 +78,7 @@ export default function ModalAgendarConsulta({ isOpen, onClose }) {
             }
         }
         buscarMedicos(), buscarPacientes()
-    }, [])
+    }, [isOpen, onClose])
 
     return (
         <ModalWrapper isOpen={isOpen} onClose={onClose}>
