@@ -11,18 +11,19 @@ export default function Header() {
 
 
     return (
-        <div>
-            <div
-                className='text-white fixed top-0 left-64 right-0 h-20 shadow-md z-20 flex items-center justify-between px-6'>
-                <div className='flex items-center space-x-3'>
-                    <Link to='/home'>
-                        <img src={logo} alt="logoMedSystem" className='h-30 w-auto' />
-                        <h1 className='text-xl font-semibold'>MedSystem</h1>
-                    </Link>
-                </div>
-            <button onClick={logOut}>Sair</button>
-            </div>
-        </div>
+        <div className='text-white fixed top-0 left-64 right-0 h-20 shadow-md z-20 flex items-center justify-between px-6' >
+            
+            <Link to='/home' className='flex items-center gap-3'>
+                <img src={logo} alt="logoMedSystem" className='h-12 w-auto' />
+                <h1 className='text-xl font-semibold text-white'>MedSystem</h1>
+            </Link>
 
+            <button 
+                onClick={logOut} 
+                className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded"
+            >
+                Sair
+            </button>
+        </div>
     )
 }
