@@ -72,7 +72,7 @@ export default function VisualizarConsultas() {
                 <table>
                     <thead>
                         <tr>
-                            {['id', 'dataHora', 'status', 'medicoId', 'pacienteId'].map((header) => (
+                            {['id', 'dataHora', 'medicoId', 'pacienteId', 'status'].map((header) => (
                                 <th key={header}>
                                     {header}
                                 </th>
@@ -83,9 +83,9 @@ export default function VisualizarConsultas() {
                         {consultas.map((consulta) => (
                             <tr key={consulta.id} className="hover:bg-black">
                                 <td className="px-6 py-4 whitepace-nowrap text-sm font-medium text-white">{consulta.id}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{consulta.pacienteId || 'N/A'}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{consulta.medicoId || 'N/A'}</td>
                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{consulta.dataHora}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{consulta.medicoId || 'N/A'}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{consulta.pacienteId || 'N/A'}</td>
                                 <td className="px-6 py-4 whitespace-nowrap">
                                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${consulta.status === 'agendada' ? 'bg-yellow-100 text-yellow-800' :
                                         consulta.status === 'realizada' ? 'bg-green-100 text-green-800' :
@@ -94,9 +94,6 @@ export default function VisualizarConsultas() {
                                         {consulta.status.toUpperCase()}
                                     </span>
                                 </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{consulta.medicoId || 'N/A'}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{consulta.pacienteId || 'N/A'}</td>
-
                             </tr>
                         ))}
                     </tbody>
