@@ -64,7 +64,7 @@ export default function VisualizarPacientes() {
 
     return (
 
-        <div>
+        <div className="p-8 ml-64 mt-20">
             <Header />
             <Sidebar />
             <h1 className="mb-8">Visualizar Pacientes</h1>
@@ -73,7 +73,7 @@ export default function VisualizarPacientes() {
                     <thead>
                         <tr>
                             {['id', 'nome', 'especialidade', 'crm'].map((header) => (
-                                <th key={header}>
+                                <th key={header} className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                                     {header}
                                 </th>
                             ))}
