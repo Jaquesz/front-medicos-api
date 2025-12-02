@@ -5,6 +5,7 @@ import ModalAgendarConsulta from './ModalAgendarConsulta';
 import ModalCadastrarMedico from './ModalCastrarMedico';
 import VisualizarConsultas from '../Pages/VisualizarConsultas';
 import { Link } from 'react-router-dom';
+import ModalCadastrarUsuario from './ModalCadastrarUsuario';
 
 export default function Sidebar() {
 
@@ -20,8 +21,9 @@ export default function Sidebar() {
   const handleOpenCadastrarMedicoModal = () => setModalCadastrarMedicoOpen(true)
   const handleCloseCadastrarMedicoModal = () => setModalCadastrarMedicoOpen(false)
 
-  // const [activeScreen, setActiveScreen] = useState()
-
+  const [ModalCadastrarUsuarioOpen, setModalCadastrarUsuarioOpen] = useState(false)
+  const handleOpenCadastrarUsuarioModal = () => setModalCadastrarUsuarioOpen(true)
+  const handleCloseCadastrarUsuarioModal = () => setModalCadastrarUsuarioOpen(false)
 
   return (
     <div className="bg-white w-64 p-4 shadow-lg h-full fixed top-0 left-0 overflow-y-auto z-30">
@@ -59,10 +61,15 @@ export default function Sidebar() {
           onClose={handleCloseCadastrarMedicoModal}
         />
 
-        <button className="flex items-center w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-150">
+        <button onClick={handleOpenCadastrarUsuarioModal}
+         className="flex items-center w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-150">
           <FaUserTie className="mr-3" />
           Cadastrar Novo Usuário
         </button>
+        <ModalCadastrarUsuario
+          isOpen={ModalCadastrarUsuarioOpen}
+          onClose={handleCloseCadastrarUsuarioModal}
+        />
       </div>
 
       <h2 className="text-lg font-bold mb-3 text-gray-700">Visualização</h2>
