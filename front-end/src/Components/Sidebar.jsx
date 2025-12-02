@@ -62,7 +62,7 @@ export default function Sidebar() {
         />
 
         <button onClick={handleOpenCadastrarUsuarioModal}
-         className="flex items-center w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-150">
+          className="flex items-center w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-150">
           <FaUserTie className="mr-3" />
           Cadastrar Novo Usuário
         </button>
@@ -74,20 +74,29 @@ export default function Sidebar() {
 
       <h2 className="text-lg font-bold mb-3 text-gray-700">Visualização</h2>
       <div className="space-y-3">
-       <a 
-        href="/consultas"  className="flex items-center w-full text-gray-700 hover:text-indigo-600 transition duration-150 py-2" 
-    >
-        <FaEye className="mr-3" />
-        Visualizar Consultas
-    </a>
-        <a href="/pacientes" className="flex items-center text-gray-700 hover:text-indigo-600 transition duration-150">
+        <Link
+          to="/consultas"
+          className="flex items-center w-full text-gray-700 hover:text-indigo-600 transition duration-150 py-2"
+        >
+          <FaEye className="mr-3" />
+          Visualizar Consultas
+        </Link>
+
+        <Link
+          to="/pacientes"
+          className="flex items-center text-gray-700 hover:text-indigo-600 transition duration-150"
+        >
           <FaUsers className="mr-3" />
           Visualizar Pacientes
-        </a>
-        <a href="/medicos" className="flex items-center text-gray-700 hover:text-indigo-600 transition duration-150">
+        </Link>
+
+        <Link
+          to="/medicos"
+          className="flex items-center text-gray-700 hover:text-indigo-600 transition duration-150"
+        >
           <FaStethoscope className="mr-3" />
           Visualizar Médicos
-        </a>
+        </Link>
       </div>
     </div>
   );
