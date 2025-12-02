@@ -2,41 +2,41 @@ import { useEffect, useState } from "react";
 import Header from "../Components/Header";
 import Sidebar from "../Components/Sidebar";
 
-export default function VisualizarConsultas() {
-    const [consultas, setConsultas] = useState([])
+export default function VisualizarPacientes() {
+    const [pacientes, setPacientes] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        const visualizarConsultas = async () => {
+        const visualizarPacientes = async () => {
             setIsLoading(true)
             setError(null)
 
             try {
                 const token = localStorage.getItem('token')
-                const response = await fetch('http://localhost:3000/consultas', {
+                const response = await fetch('http://localhost:3000/pacientes', {
                     method: "GET", headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
                     }
                 })
                 const dados = await response.json()
-                setConsultas(dados)
+                setPacientes(dados)
             } catch (error) {
-                alert('Erro ao visualizar consultas')
+                alert('Erro ao visualizar pacientes')
                 setError("Não foi possível carregar os dados. Verifique a API.")
             }
             finally {
                 setIsLoading(false)
             }
         }
-        visualizarConsultas()
+        visualizarPacientes()
     }, [])
 
     if (isLoading) {
         return (
             <div className="p-8 text-center text-indigo-600 font-semibold">
-                Carregando consultas...
+                Carregando pacientes...
             </div>
         );
     }
@@ -49,14 +49,14 @@ export default function VisualizarConsultas() {
         );
     }
 
-    if (consultas.length === 0) {
+    if (pacientes.length === 0) {
         return (
             <div className="p-8">
                 <h1 className="text-3xl font-light border-b pb-4 mb-8 text-gray-800">
-                    Visualizar Consultas
+                    Visualizar Pacientes
                 </h1>
                 <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <p className="text-gray-500 italic">Nenhuma consulta encontrada.</p>
+                    <p className="text-gray-500 italic">Nenhum médico encontrado.</p>
                 </div>
             </div>
         );
@@ -67,12 +67,12 @@ export default function VisualizarConsultas() {
         <div>
             <Header />
             <Sidebar />
-            <h1>Visualizar consultas</h1>
+            <h1>Visualizar Pacientes</h1>
             <div>
                 <table>
                     <thead>
                         <tr>
-                            {['id', 'dataHora', 'status', 'medicoId', 'pacienteId'].map((header) => (
+                            {['id', 'nome', 'especialidade', 'crm'].map((header) => (
                                 <th key={header}>
                                     {header}
                                 </th>
@@ -80,21 +80,12 @@ export default function VisualizarConsultas() {
                         </tr>
                     </thead>
                     <tbody>
-                        {consultas.map((consulta) => (
-                            <tr key={consulta.id} className="hover:bg-gray-50">
-                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{consulta.id}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{new Date(consulta.dataHora).toLocaleDateString()}</td>
-                                <td className="px-6 py-4 whitespace-nowrap">
-                                    <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${consulta.status === 'agendada' ? 'bg-yellow-100 text-yellow-800' :
-                                        consulta.status === 'realizada' ? 'bg-green-100 text-green-800' :
-                                            'bg-red-100 text-red-800'
-                                        }`}>
-                                        {consulta.status.toUpperCase()}
-                                    </span>
-                                </td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{consulta.medicoId || 'N/A'}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{consulta.pacienteId || 'N/A'}</td>
-
+                        {pacientes.map((paciente) => (
+                            <tr key={paciente.id} className="hover:bg-gray-50">
+                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{paciente.id}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{paciente.nome || 'N/A'}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{paciente.cpf || 'N/A'}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{paciente.telefone}</td>
                             </tr>
                         ))}
                     </tbody>

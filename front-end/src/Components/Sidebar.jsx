@@ -73,11 +73,11 @@ export default function Sidebar() {
         <FaEye className="mr-3" />
         Visualizar Consultas
     </a>
-        <a href="#" className="flex items-center text-gray-700 hover:text-indigo-600 transition duration-150">
+        <a href="/pacientes" className="flex items-center text-gray-700 hover:text-indigo-600 transition duration-150">
           <FaUsers className="mr-3" />
           Visualizar Pacientes
         </a>
-        <a href="#" className="flex items-center text-gray-700 hover:text-indigo-600 transition duration-150">
+        <a href="/medicos" className="flex items-center text-gray-700 hover:text-indigo-600 transition duration-150">
           <FaStethoscope className="mr-3" />
           Visualizar Médicos
         </a>
