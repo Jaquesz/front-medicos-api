@@ -3,6 +3,7 @@ import { FaUserPlus, FaCalendarPlus, FaUserMd, FaUserTie, FaEye, FaUsers, FaStet
 import ModaladastrarPaciente from './ModalCadastrarPaciente';
 import ModalAgendarConsulta from './ModalAgendarConsulta';
 import ModalCadastrarMedico from './ModalCastrarMedico';
+import VisualizarConsultas from './VisualizarConsultas';
 
 export default function Sidebar() {
 
@@ -17,6 +18,8 @@ export default function Sidebar() {
   const [ModalCadastrarMedicoOpen, setModalCadastrarMedicoOpen] = useState(false)
   const handleOpenCadastrarMedicoModal = () => setModalCadastrarMedicoOpen(true)
   const handleCloseCadastrarMedicoModal = () => setModalCadastrarMedicoOpen(false)
+
+  const [activeScreen, setActiveScreen] = useState()
 
 
   return (
@@ -63,10 +66,17 @@ export default function Sidebar() {
 
       <h2 className="text-lg font-bold mb-3 text-gray-700">Visualização</h2>
       <div className="space-y-3">
-        <a href="#" className="flex items-center text-gray-700 hover:text-indigo-600 transition duration-150">
-          <FaEye className="mr-3" />
-          Visualizar Consultas
-        </a>
+       <a 
+        href="#" 
+        onClick={(e) => {
+            e.preventDefault();
+            setActiveScreen('VisualizarConsultas')
+        }}
+        className="flex items-center w-full text-gray-700 hover:text-indigo-600 transition duration-150 py-2" 
+    >
+        <FaEye className="mr-3" />
+        Visualizar Consultas
+    </a>
         <a href="#" className="flex items-center text-gray-700 hover:text-indigo-600 transition duration-150">
           <FaUsers className="mr-3" />
           Visualizar Pacientes
