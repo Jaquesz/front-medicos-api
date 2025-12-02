@@ -79,7 +79,7 @@ export default function VisualizarMedicos() {
                             ))}
                         </tr>
                     </thead>
-                    <tbody className="divide-y">
+                    <tbody className="divide-y text-left text-xs">
                         {medicos.map((medico) => (
                             <tr key={medico.id} className="hover:bg-black">
                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{medico.id}</td>

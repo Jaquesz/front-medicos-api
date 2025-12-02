@@ -79,7 +79,7 @@ export default function VisualizarPacientes() {
                             ))}
                         </tr>
                     </thead>
-                    <tbody className="divide-y ">
+                    <tbody className="divide-y text-left text-xs">
                         {pacientes.map((paciente) => (
                             <tr key={paciente.id} className="hover:bg-black">
                                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{paciente.id}</td>
