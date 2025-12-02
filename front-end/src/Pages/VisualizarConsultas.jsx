@@ -68,16 +68,16 @@ export default function VisualizarConsultas() {
             <Header />
             <Sidebar />
             <div className="p-8 ml-64 mt-20">
-                <h1 className="text-white mb-8 text-2xl">Visualizar consultas</h1>
+                <h1 className="mb-8">Visualizar consultas</h1>
 
                 {consultas.length === 0 ? (
                     <div className="bg-white p-6 rounded-lg shadow-sm border border-white">
-                        <p className="text-gray-600 italic">Nenhuma consulta encontrada.</p>
+                        <p className="text-white italic">Nenhuma consulta encontrada.</p>
                     </div>
                 ) : (
-                    <div className="overflow-x-auto">
-                        <table className="min-w-full bg-gray-800 rounded-lg overflow-hidden">
-                            <thead className="bg-gray-700">
+                    <div>
+                        <table className="divide-y">
+                            <thead>
                                 <tr>
                                     {['ID', 'Data/Hora', 'Médico ID', 'Paciente ID', 'Status Atual', 'Mudar Status'].map((header) => (
                                         <th key={header} className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
@@ -86,13 +86,13 @@ export default function VisualizarConsultas() {
                                     ))}
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-600">
+                            <tbody className="divide-y">
                                 {consultas.map((consulta) => (
-                                    <tr key={consulta.id} className="hover:bg-gray-700 transition-colors">
+                                    <tr key={consulta.id} className="hover:bg-black transition-colors">
                                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{consulta.id}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{consulta.dataHora}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{consulta.medicoId || 'N/A'}</td>
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{consulta.pacienteId || 'N/A'}</td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{consulta.dataHora}</td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{consulta.medicoId || 'N/A'}</td>
+                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{consulta.pacienteId || 'N/A'}</td>
                                         <td className="px-6 py-4 whitespace-nowrap">
                                             <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                                                 ${consulta.status === 'agendada' ? 'bg-yellow-100 text-yellow-800' :
