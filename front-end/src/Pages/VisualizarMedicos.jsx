@@ -52,11 +52,11 @@ export default function VisualizarMedicos() {
     if (medicos.length === 0) {
         return (
             <div className="p-8">
-                <h1 className="text-3xl font-light border-b pb-4 mb-8 text-gray-800">
+                <h1 className="text-3xl font-light border-b pb-4 mb-8 text-white">
                     Visualizar Consultas
                 </h1>
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <p className="text-gray-500 italic">Nenhum médico encontrado.</p>
+                <div className="bg-white p-6 rounded-lg shadow-sm border border-white">
+                    <p className="text-white italic">Nenhum médico encontrado.</p>
                 </div>
             </div>
         );
@@ -67,9 +67,9 @@ export default function VisualizarMedicos() {
         <div>
             <Header />
             <Sidebar />
-            <h1>Visualizar médicos</h1>
+            <h1 className="mb-8">Visualizar médicos</h1>
             <div>
-                <table>
+                <table className="divide-y">
                     <thead>
                         <tr>
                             {['id', 'nome', 'especialidade', 'crm'].map((header) => (
@@ -79,13 +79,13 @@ export default function VisualizarMedicos() {
                             ))}
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="divide-y">
                         {medicos.map((medico) => (
-                            <tr key={medico.id} className="hover:bg-gray-50">
-                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{medico.id}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{medico.nome || 'N/A'}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{medico.especialidade || 'N/A'}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{medico.crm}</td>
+                            <tr key={medico.id} className="hover:bg-black">
+                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{medico.id}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{medico.nome || 'N/A'}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{medico.especialidade || 'N/A'}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{medico.crm}</td>
                             </tr>
                         ))}
                     </tbody>
