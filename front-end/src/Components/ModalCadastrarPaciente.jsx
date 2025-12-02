@@ -12,9 +12,9 @@ export default function ModaladastrarPaciente({ isOpen, onClose }) {
             const token = localStorage.getItem('token')
 
             const payload = {
-               nome: nome,
-               cpf : cpf,
-               telefone : telefone
+                nome: nome,
+                cpf: cpf,
+                telefone: telefone
             }
             if (token) {
                 const fetchOptions = {
@@ -45,9 +45,10 @@ export default function ModaladastrarPaciente({ isOpen, onClose }) {
     return (
         <ModalWrapper isOpen={isOpen} onClose={onClose}>
             <div className="flex flex-col gap-10">
+                <h2 className="text-black text-xl">Cadastrar novo Paciente</h2>
                 <div className="text-black">
                     <label>Digite o Nome do paciente</label>
-                    <input type="text" value={nome} onChange={(e) =>setNome(e.target.value)} className="p-2 border border-gray-700 rounded-md w-full focus:ring-blue-500 focus:border-blue-500 text-black" />
+                    <input type="text" value={nome} onChange={(e) => setNome(e.target.value)} className="p-2 border border-gray-700 rounded-md w-full focus:ring-blue-500 focus:border-blue-500 text-black" />
                 </div>
                 <div className="text-black">
                     <label>Digite o cpf do paciente</label>
