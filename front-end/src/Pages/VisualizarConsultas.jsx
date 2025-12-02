@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import Header from "../Components/Header";
+import Sidebar from "../Components/Sidebar";
 
 export default function VisualizarConsultas() {
     const [consultas, setConsultas] = useState([])
@@ -11,8 +13,10 @@ export default function VisualizarConsultas() {
             setError(null)
 
             try {
+                const token = localStorage.getItem('token')
                 const response = await fetch('http://localhost:3000/consultas', {
                     method: "GET", headers: {
+                        'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
                     }
                 })
@@ -59,7 +63,10 @@ export default function VisualizarConsultas() {
     }
 
     return (
+
         <div>
+            <Header />
+            <Sidebar />
             <h1>Visualizar consultas</h1>
             <div>
                 <table>
@@ -90,8 +97,8 @@ export default function VisualizarConsultas() {
                             </tr>
                         ))}
                     </tbody>
-            </table>
-        </div>
+                </table>
+            </div>
         </div >
     )
 }
