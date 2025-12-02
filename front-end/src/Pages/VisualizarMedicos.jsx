@@ -35,7 +35,7 @@ export default function VisualizarMedicos() {
 
     if (isLoading) {
         return (
-            <div className="p-8 text-center text-indigo-600 font-semibold">
+            <div className="p-8 text-center text-white font-semibold">
                 Carregando consultas...
             </div>
         );

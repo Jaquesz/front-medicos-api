@@ -35,7 +35,7 @@ export default function VisualizarPacientes() {
 
     if (isLoading) {
         return (
-            <div className="p-8 text-center text-indigo-600 font-semibold">
+            <div className="p-8 text-center text-white font-semibold">
                 Carregando pacientes...
             </div>
         );
@@ -56,7 +56,7 @@ export default function VisualizarPacientes() {
                     Visualizar Pacientes
                 </h1>
                 <div className="bg-white p-6 rounded-lg shadow-sm border border-white">
-                    <p className="text-gray-500 italic">Nenhum médico encontrado.</p>
+                    <p className="text-white italic">Nenhum médico encontrado.</p>
                 </div>
             </div>
         );

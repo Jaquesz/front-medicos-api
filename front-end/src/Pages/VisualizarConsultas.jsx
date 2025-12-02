@@ -60,7 +60,7 @@ export default function VisualizarConsultas() {
         visualizarConsultas()
     }, [])
 
-    if (isLoading) return <div className="p-8 text-center text-indigo-600 font-semibold">Carregando consultas...</div>;
+    if (isLoading) return <div className="p-8 text-center text-white font-semibold">Carregando consultas...</div>;
     if (error) return <div className="p-8 text-center text-red-600 font-bold">Erro ao carregar dados: {error}</div>;
 
     return (
