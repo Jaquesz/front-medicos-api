@@ -52,11 +52,11 @@ export default function VisualizarConsultas() {
     if (consultas.length === 0) {
         return (
             <div className="p-8">
-                <h1 className="text-3xl font-light border-b pb-4 mb-8 text-gray-800">
+                <h1 className="text-3xl border-b pb-4 mb-8 text-white">
                     Visualizar Consultas
                 </h1>
-                <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-                    <p className="text-gray-500 italic">Nenhuma consulta encontrada.</p>
+                <div className="bg-white p-6 rounded-lg shadow-sm border border-white">
+                    <p className="text-white italic">Nenhuma consulta encontrada.</p>
                 </div>
             </div>
         );
@@ -67,7 +67,7 @@ export default function VisualizarConsultas() {
         <div>
             <Header />
             <Sidebar />
-            <h1>Visualizar consultas</h1>
+            <h1 className="text-white mb-8">Visualizar consultas</h1>
             <div>
                 <table>
                     <thead>
@@ -81,11 +81,11 @@ export default function VisualizarConsultas() {
                     </thead>
                     <tbody>
                         {consultas.map((consulta) => (
-                            <tr key={consulta.id} className="hover:bg-gray-50">
-                                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{consulta.id}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{consulta.pacienteId || 'N/A'}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{consulta.medicoId || 'N/A'}</td>
-                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{new Date(consulta.dataHora).toLocaleDateString()}</td>
+                            <tr key={consulta.id} className="hover:bg-black">
+                                <td className="px-6 py-4 whitepace-nowrap text-sm font-medium text-white">{consulta.id}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{consulta.pacienteId || 'N/A'}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{consulta.medicoId || 'N/A'}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">{consulta.dataHora}</td>
                                 <td className="px-6 py-4 whitespace-nowrap">
                                     <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${consulta.status === 'agendada' ? 'bg-yellow-100 text-yellow-800' :
                                         consulta.status === 'realizada' ? 'bg-green-100 text-green-800' :
