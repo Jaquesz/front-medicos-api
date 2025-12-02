@@ -94,6 +94,9 @@ export default function VisualizarConsultas() {
                                         {consulta.status.toUpperCase()}
                                     </span>
                                 </td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{consulta.medicoId || 'N/A'}</td>
+                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{consulta.pacienteId || 'N/A'}</td>
+
                             </tr>
                         ))}
                     </tbody>
